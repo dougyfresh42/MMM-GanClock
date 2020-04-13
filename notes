@@ -1,0 +1,19 @@
+$npm install
+- problem is that TFJS is compiled for N-API 5, and electron node is expecting 4
+(or something like this)
+
+$node_modules/.bin/electron-rebuild
+- problem is no support for n-api-version in electron rebuild?
+
+* Change node version to exactly match electron version
+- problem is now canvas is one version too early or something ridiculous
+- can't electron-rebuild b/c of previous error
+- have to 
+$node_modules/.bin/electron-rebuild -o canvas
+
+Now sort of works
+But this is difficult - help
+
+(Also tried: https://github.com/electron/electron/blob/master/docs/tutorial/using-native-node-modules.md)
+"Using npm"
+but this didn't actually seeem to fix the problem

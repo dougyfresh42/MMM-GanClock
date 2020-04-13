@@ -1,0 +1,17 @@
+{
+  "name": "nodetest",
+  "version": "1.0.0",
+  "description": "Hello World ofc",
+  "main": "helloworld.js",
+  "dependencies": {
+    "@tensorflow/tfjs": "^1.7.2",
+    "@tensorflow/tfjs-node": "^1.7.2",
+    "canvas": "^2.6.1"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.10.1"
+  },
+  "scripts": {},
+  "author": "",
+  "license": "ISC"
+}
