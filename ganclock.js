@@ -5,24 +5,28 @@ Module.register("ganclock", {
 
   start     : function() {
     this.loaded = false;
+    this.sendSocketNotification("INIT", 0);
   },
 
   getDom    : function() {
-    /*if (this.loaded) {
+    if (this.loaded) {
       var image = document.createElement("img");
+      image.id    = "GANCLOCK";
       image.src   = this.png;
       return image;
-    } else {*/
+    } else {
       var wrapper = document.createElement("div");
       wrapper.innerHTML = "Loading Clock";
-      Log.log("==================");
       return wrapper;
-    //}
+    }
   },
 
-  notificationReceived: function(notification, payload, sender) {
-    this.loaded = true;
-    this.png = payload;
-//    this.updateDom();
+  socketNotificationReceived: function(notification, payload) {
+
+    if (notification == 'NEW_PNG') {
+      this.png = payload;
+      this.loaded = true;
+      this.updateDom();
+    };
   },
 });
