@@ -1,0 +1,30 @@
+#ganclock {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: pixelated;
+		max-width: 100%;
+}
+
+/* default image size is current 4*28 + 15 = 127 */
+/* oh that's rough.  I should change colon size */
+/*TODO*/
+#ganclock.xsmall {
+	width: 64px;
+}
+#ganclock.small {
+	width: 96px;
+}
+#ganclock.medium {
+	width: 127px;
+}
+#ganclock.large {
+	width: 191px;
+}
+#ganclock.xlarge {
+	width: 254px;
+}
+#ganclock.fillparent {
+	width: 100%;
+}

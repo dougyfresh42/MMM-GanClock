@@ -1,0 +1,21 @@
+Add animated number "generation"
+  - Create sprite sheet, first frame at top, last at bottom
+  - Use CSS "animate" property along with "step" for animation
+  - Of course multiple TF models - 1 per frame
+
+Add custom scaling if desired
+  - default no scaling
+  - scaling if user wants it!
+
+Change colon width so that the image is not 127 width...
+
+Update GAN models so that clock is readable more often
+
+Add Python GAN code to repo, or perhaps separate repo with helpers somewhere
+
+Figure out how to properly install Tensorflow so it doesn't conflict with
+Electron NodeJS version (see notes)
+
+Create Proper README with screenshots
+
+See if this is Pi installable, or even netbook installable

@@ -1,6 +1,11 @@
 Module.register("ganclock", {
   // Default module config.
   defaults  : {
+    size: "medium",
+  },
+
+  getStyles : function() {
+    return ['ganclock.css'];
   },
 
   start     : function() {
@@ -11,8 +16,9 @@ Module.register("ganclock", {
   getDom    : function() {
     if (this.loaded) {
       var image = document.createElement("img");
-      image.id    = "GANCLOCK";
+      image.id    = "ganclock";
       image.src   = this.png;
+      image.className = this.config.size;
       return image;
     } else {
       var wrapper = document.createElement("div");
