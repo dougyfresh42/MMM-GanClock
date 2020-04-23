@@ -1,11 +1,11 @@
-Module.register("ganclock", {
+Module.register("MMM-GanClock", {
   // Default module config.
   defaults  : {
     size: "medium",
   },
 
   getStyles : function() {
-    return ['ganclock.css'];
+    return ['MMM-GanClock.css'];
   },
 
   start     : function() {
