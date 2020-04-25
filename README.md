@@ -15,6 +15,13 @@ THIS SHOULD WORK ON A PI
 I believe it didn't work b/c i need to rebuild libtensorflow
 working on that rn
 
+rebuilt tf, still have to do rebuild after unpack tar file in /dep
+Working!
+
 ----------------------------------------
+
 I think i need to electron-reconfig here BUT
+(sudo apt install pkg-config)
+sudo apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++
+node_modules/.bin/electron-rebuild -o canvas
 Adding to config.js

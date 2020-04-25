@@ -9,7 +9,7 @@ const colon_width = 15;
 
 const canvas = createCanvas(4*digit_width + colon_width, digit_height);
 const ctx = canvas.getContext('2d');
-loadImage('modules/ganclock/background.png').then((image) => {
+loadImage('modules/MMM-GanClock/background.png').then((image) => {
   ctx.drawImage(image, 0, 0);
 });
 
@@ -25,7 +25,7 @@ class digit_gen {
 
   async load_gens() {
     this.model =
-      await tf.loadLayersModel('file://modules/ganclock/models/'+this.digit+'/model.json');
+      await tf.loadLayersModel('file://modules/MMM-GanClock/models/'+this.digit+'/model.json');
     await this.init_seed();
 
     this.loaded = true;
