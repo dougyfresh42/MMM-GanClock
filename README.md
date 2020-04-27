@@ -5,7 +5,7 @@ This is a clock for MagicMirror which uses a Neural Net generator trained as a G
 
 1. [Install nvm](https://github.com/cncjs/cncjs/wiki/Setup-Guide:-Raspberry-Pi-%7C-Install-Node.js-via-Node-Version-Manager-(NVM))
 
-2. Install the version of NodeJS corresponding to the version MagicMirror uses with Electron:
+2. Install the version of NodeJS corresponding to the version MagicMirror uses with Electron.  Oops I had to actually crosscompile this on my desktop [using these intructions](https://chrislea.com/2018/08/20/cross-compiling-node-js-for-arm-on-ubuntu/)
 ```bash
 nvm install 12.4.0
 ```
