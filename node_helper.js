@@ -19,21 +19,18 @@ const png = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsA
 // Class that loads the tfjs models and generates the digit sprite
 class digit_gen {
   constructor(digit) {
-    this.loaded = false;
     this.digit = digit;
   }
 
-  async load_gens() {
+  async init_seed() {
     this.model =
       await tf.loadLayersModel('file://modules/MMM-GanClock/models/'+this.digit+'/model.json');
-    await this.init_seed();
 
-    this.loaded = true;
-  }
-
-  init_seed() {
     this.seed = tf.randomNormal([1,100], 0, 1);
     this.sprite = this.model.predict(this.seed).flatten().arraySync();
+
+    // save memory
+    this.model = null;
   }
 
   get_sprite() {
@@ -67,19 +64,17 @@ class clock_gen {
 
     let digit = this.digits[position];
 
-    if (this.digit_gens[digit].loaded) {
-      let digit_array = this.digit_gens[digit].get_sprite();
+    let digit_array = this.digit_gens[digit].get_sprite();
 
-      for (let i = 0; i < digit_array.length; i += 1) {
-        let num = Math.min(Math.max(digit_array[i], 0), 1);
-        imgData.data[i*4+0] = 255 * num;
-        imgData.data[i*4+1] = 255 * num;
-        imgData.data[i*4+2] = 255 * num;
-        imgData.data[i*4+3] = 255;
-      }
-
-      ctx.putImageData(imgData, x, 0);
+    for (let i = 0; i < digit_array.length; i += 1) {
+      let num = Math.min(Math.max(digit_array[i], 0), 1);
+      imgData.data[i*4+0] = 255 * num;
+      imgData.data[i*4+1] = 255 * num;
+      imgData.data[i*4+2] = 255 * num;
+      imgData.data[i*4+3] = 255;
     }
+
+    ctx.putImageData(imgData, x, 0);
   }
 
   async update_digits(new_digits) {
@@ -87,13 +82,11 @@ class clock_gen {
     for(let i = 0; i < 4; i++) {
       updated.push(new_digits[i] == this.digits[i]);
       if (!this.digits.includes(new_digits[i]))
-        if (this.digit_gens[new_digits[i]].loaded)
-          await this.digit_gens[new_digits[i]].init_seed();
+        await this.digit_gens[new_digits[i]].init_seed();
     }
 
     this.digits = new_digits;
 
-    //let index = 0;
     while (!updated.every(x=>x)) {
       for (let i = 0; i < 4; i++) {
         if (!updated[i]) {
@@ -109,7 +102,6 @@ class clock_gen {
   async init_clock() {
     for(let i = 0; i < 10; i++) {
       let dg = new digit_gen(i);
-      await dg.load_gens();
       this.digit_gens.push(dg);
     }
 
