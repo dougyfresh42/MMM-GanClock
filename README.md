@@ -47,3 +47,6 @@ Coming soon (:
 ### Make SD Readonly
 https://gitlab.com/larsfp/rpi-readonly/-/blob/master/setup.sh
 (Still needs verified)
+
+OR
+https://www.raspberrypi.org/forums/viewtopic.php?f=63&t=161416
