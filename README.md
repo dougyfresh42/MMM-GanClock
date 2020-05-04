@@ -43,3 +43,7 @@ This is potentially solveable with an older TF version but I didn't try that.
 
 ## Configure options
 Coming soon (:
+
+### Make SD Readonly
+https://gitlab.com/larsfp/rpi-readonly/-/blob/master/setup.sh
+(Still needs verified)
